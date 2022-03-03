@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9912899827D011C4009E3D1C /* MainMenue.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9912899727D011C4009E3D1C /* MainMenue.sks */; };
+		9912899A27D01467009E3D1C /* MainMenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912899927D01467009E3D1C /* MainMenue.swift */; };
 		994923F027CF746F00DC776A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994923EF27CF746F00DC776A /* AppDelegate.swift */; };
 		994923F227CF746F00DC776A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 994923F127CF746F00DC776A /* GameScene.sks */; };
 		994923F427CF746F00DC776A /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 994923F327CF746F00DC776A /* Actions.sks */; };
@@ -15,9 +17,16 @@
 		994923FB27CF746F00DC776A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994923F927CF746F00DC776A /* Main.storyboard */; };
 		994923FD27CF747300DC776A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 994923FC27CF747300DC776A /* Assets.xcassets */; };
 		9949240027CF747300DC776A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994923FE27CF747300DC776A /* LaunchScreen.storyboard */; };
+		9949240727CF768800DC776A /* shot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9949240627CF768800DC776A /* shot.mp3 */; };
+		9949240A27CF76F300DC776A /* Fier.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9949240827CF76F300DC776A /* Fier.sks */; };
+		9949240B27CF76F300DC776A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9949240927CF76F300DC776A /* Assets.xcassets */; };
+		9949240D27CF777500DC776A /* BackSnow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9949240C27CF777500DC776A /* BackSnow.sks */; };
+		9968C43927D0065700C6457D /* clapEnemy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9968C43827D0065700C6457D /* clapEnemy.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9912899727D011C4009E3D1C /* MainMenue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenue.sks; sourceTree = "<group>"; };
+		9912899927D01467009E3D1C /* MainMenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenue.swift; sourceTree = "<group>"; };
 		994923EC27CF746F00DC776A /* Game1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		994923EF27CF746F00DC776A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		994923F127CF746F00DC776A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -27,6 +36,11 @@
 		994923FA27CF746F00DC776A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		994923FC27CF747300DC776A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		994923FF27CF747300DC776A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9949240627CF768800DC776A /* shot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shot.mp3; sourceTree = "<group>"; };
+		9949240827CF76F300DC776A /* Fier.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fier.sks; sourceTree = "<group>"; };
+		9949240927CF76F300DC776A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9949240C27CF777500DC776A /* BackSnow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackSnow.sks; sourceTree = "<group>"; };
+		9968C43827D0065700C6457D /* clapEnemy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clapEnemy.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +57,7 @@
 		994923E327CF746F00DC776A = {
 			isa = PBXGroup;
 			children = (
+				9949240927CF76F300DC776A /* Assets.xcassets */,
 				994923EE27CF746F00DC776A /* Game1 */,
 				994923ED27CF746F00DC776A /* Products */,
 			);
@@ -59,14 +74,20 @@
 		994923EE27CF746F00DC776A /* Game1 */ = {
 			isa = PBXGroup;
 			children = (
+				9949240827CF76F300DC776A /* Fier.sks */,
 				994923EF27CF746F00DC776A /* AppDelegate.swift */,
 				994923F127CF746F00DC776A /* GameScene.sks */,
 				994923F327CF746F00DC776A /* Actions.sks */,
 				994923F527CF746F00DC776A /* GameScene.swift */,
+				9949240C27CF777500DC776A /* BackSnow.sks */,
+				9912899927D01467009E3D1C /* MainMenue.swift */,
 				994923F727CF746F00DC776A /* GameViewController.swift */,
 				994923F927CF746F00DC776A /* Main.storyboard */,
+				9949240627CF768800DC776A /* shot.mp3 */,
 				994923FC27CF747300DC776A /* Assets.xcassets */,
+				9968C43827D0065700C6457D /* clapEnemy.wav */,
 				994923FE27CF747300DC776A /* LaunchScreen.storyboard */,
+				9912899727D011C4009E3D1C /* MainMenue.sks */,
 			);
 			path = Game1;
 			sourceTree = "<group>";
@@ -129,10 +150,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9949240D27CF777500DC776A /* BackSnow.sks in Resources */,
 				994923FB27CF746F00DC776A /* Main.storyboard in Resources */,
+				9912899827D011C4009E3D1C /* MainMenue.sks in Resources */,
 				994923F227CF746F00DC776A /* GameScene.sks in Resources */,
+				9949240A27CF76F300DC776A /* Fier.sks in Resources */,
 				994923FD27CF747300DC776A /* Assets.xcassets in Resources */,
+				9968C43927D0065700C6457D /* clapEnemy.wav in Resources */,
 				9949240027CF747300DC776A /* LaunchScreen.storyboard in Resources */,
+				9949240727CF768800DC776A /* shot.mp3 in Resources */,
+				9949240B27CF76F300DC776A /* Assets.xcassets in Resources */,
 				994923F427CF746F00DC776A /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				994923F627CF746F00DC776A /* GameScene.swift in Sources */,
+				9912899A27D01467009E3D1C /* MainMenue.swift in Sources */,
 				994923F827CF746F00DC776A /* GameViewController.swift in Sources */,
 				994923F027CF746F00DC776A /* AppDelegate.swift in Sources */,
 			);
@@ -223,7 +251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -278,7 +306,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -301,6 +329,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -308,11 +337,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Watashi.Game1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Watashi.Game1123123;
+				PRODUCT_NAME = Game1;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -329,6 +358,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -336,11 +366,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Watashi.Game1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Watashi.Game1123123;
+				PRODUCT_NAME = Game1;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

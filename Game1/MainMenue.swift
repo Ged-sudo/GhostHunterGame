@@ -1,10 +1,3 @@
-//
-//  MainMenue.swift
-//  Game1
-//
-//  Created by Евгений Андронов on 03.03.2022.
-//
-
 import SpriteKit
 
 class MainMenue: SKScene {
@@ -16,16 +9,33 @@ class MainMenue: SKScene {
     var levelLabelNode:SKLabelNode!
     
     override func didMove(to view: SKView) {
-        snowfild = self.childNode(withName: "backSnow") as? SKEmitterNode
-        snowfild.advanceSimulationTime(10)
         
-        newGameButtonNode = self.childNode(withName: "newGameButton") as? SKSpriteNode
+        //escapeMenueButtonNode = SKSpriteNode(imageNamed: "menu")
+        //escapeMenueButtonNode.position = CGPoint(x: UIScreen.main.bounds.width - 70, y: UIScreen.main.bounds.height - 50)
+        
+        //snowfild = self.childNode(withName: "backSnow") as? SKEmitterNode
+        //snowfild.advanceSimulationTime(10)
+        
+        snowfild = SKEmitterNode(fileNamed: "BackSnow")
+        self.addChild(snowfild)
+        
+        newGameButtonNode = SKSpriteNode(imageNamed: "StartButton")
+        newGameButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 100)
         newGameButtonNode.texture = SKTexture(imageNamed: "StartButton")
+        newGameButtonNode.setScale(0.3)
+        self.addChild(newGameButtonNode)
         
-        newLevelButtonNode = self.childNode(withName: "newLevelButton") as? SKSpriteNode
+        newLevelButtonNode = SKSpriteNode(imageNamed: "labelLevel")
+        newLevelButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 300)
         newLevelButtonNode.texture = SKTexture(imageNamed: "LevelButton")
+        self.addChild(newLevelButtonNode)
         
-        levelLabelNode = self.childNode(withName: "levelLabel") as? SKLabelNode
+        levelLabelNode = SKLabelNode(text: "Легко")
+        levelLabelNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 500)
+        levelLabelNode.fontName = "Blood"
+        levelLabelNode.fontSize = 50
+        self.addChild(levelLabelNode)
+        
         
         let userLevel = UserDefaults.standard
         if userLevel.bool(forKey: "hard"){
@@ -36,17 +46,17 @@ class MainMenue: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first
-        
-        if let location = touch?.location(in: self){
-            let nodeArray = self.nodes(at: location)
-            
-            if nodeArray.first?.name == "newGameButton"{
+       
+        for touch in touches {
+           let location = touch.location(in: self)
+            if newGameButtonNode.contains(location) {
                 let transit = SKTransition.flipVertical(withDuration: 1)
                 let gameScene = GameScene(size: UIScreen.main.bounds.size)
                 
                 self.view?.presentScene(gameScene, transition: transit)
-                
+            }
+            if newLevelButtonNode.contains(location){
+                changeLevel()
             }
         }
     }
@@ -54,20 +64,14 @@ class MainMenue: SKScene {
     func changeLevel(){
         let userLevel = UserDefaults.standard
         
-        if levelLabelNode.text == "Лекго"{
+        if levelLabelNode.text == "Легко"{
             levelLabelNode.text = "H A R D !"
             userLevel.set(true, forKey: "hard")
             
         }else{
-            levelLabelNode.text = "Лекго"
+            levelLabelNode.text = "Легко"
             userLevel.set(false, forKey: "hard")
-            
         }
-        
         userLevel.synchronize()
-                
-        
-         
     }
-    
 }

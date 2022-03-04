@@ -1,16 +1,10 @@
-//
-//  GameScene.swift
-//  Game1
-//
-//  Created by Евгений Андронов on 02.03.2022.
-//
-
 import SpriteKit
 import GameplayKit
 import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var escapeMenueButtonNode: SKNode! = nil
     var snowfild: SKEmitterNode!
     var player: SKSpriteNode!
     var scoreLabel: SKLabelNode!
@@ -30,12 +24,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func didMove(to view: SKView) {
+        escapeMenueButtonNode = SKSpriteNode(imageNamed: "menu")
+        escapeMenueButtonNode.position = CGPoint(x: UIScreen.main.bounds.width - 70, y: UIScreen.main.bounds.height - 50)
+        self.addChild(escapeMenueButtonNode)
+        
         snowfild = SKEmitterNode(fileNamed: "BackSnow")
         snowfild.position = CGPoint(x: 0, y: 1472)
         snowfild.advanceSimulationTime(10)
         snowfild.zPosition = -1
          
-        self.addChild(snowfild )
+        self.addChild(snowfild)
         
         player = SKSpriteNode(imageNamed: "MyPers")
         player.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: 40)
@@ -50,9 +48,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontSize = 36
         scoreLabel.fontColor = UIColor.white
         scoreLabel.position = CGPoint(x: (self.frame.width) / 4, y: UIScreen.main.bounds.height - 60)
-       
-        //print(self.frame.width)
-        //print(self.frame.height)
         
         self.addChild(scoreLabel)
         
@@ -126,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemys = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: enemys) as! [String]
         
         let enemy = SKSpriteNode(imageNamed: enemys[0])
-        let positionEnemyBorn = GKRandomDistribution(lowestValue: -320, highestValue: 320)
+        let positionEnemyBorn = GKRandomDistribution(lowestValue: 30, highestValue: Int(UIScreen.main.bounds.width) - 30)
         let costPos = CGFloat(positionEnemyBorn.nextInt())
         
         enemy.position = CGPoint(x: costPos, y: self.frame.height)
@@ -155,8 +150,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        fireBullet()
+                for touch in touches {
+                   let location = touch.location(in: self)
+                    if escapeMenueButtonNode.contains(location) {
+                        let transit = SKTransition.flipVertical(withDuration: 1)
+                        let gameScene = MainMenue(size: UIScreen.main.bounds.size)
+                        
+                        self.view?.presentScene(gameScene, transition: transit)
+                    }else{
+                        fireBullet()
+                    }
+                }
+        
     }
+    
     
     func fireBullet(){
         self.run(SKAction.playSoundFileNamed("shot.mp3", waitForCompletion: false))
@@ -183,6 +190,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         actions.append(SKAction.removeFromParent())
         bullet.run(SKAction.sequence(actions))
     }
+    
+   
+    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered

@@ -77,17 +77,17 @@
 				9949240827CF76F300DC776A /* Fier.sks */,
 				994923EF27CF746F00DC776A /* AppDelegate.swift */,
 				994923F127CF746F00DC776A /* GameScene.sks */,
-				994923F327CF746F00DC776A /* Actions.sks */,
 				994923F527CF746F00DC776A /* GameScene.swift */,
-				9949240C27CF777500DC776A /* BackSnow.sks */,
+				994923F327CF746F00DC776A /* Actions.sks */,
 				9912899927D01467009E3D1C /* MainMenue.swift */,
+				9912899727D011C4009E3D1C /* MainMenue.sks */,
 				994923F727CF746F00DC776A /* GameViewController.swift */,
 				994923F927CF746F00DC776A /* Main.storyboard */,
 				9949240627CF768800DC776A /* shot.mp3 */,
 				994923FC27CF747300DC776A /* Assets.xcassets */,
 				9968C43827D0065700C6457D /* clapEnemy.wav */,
 				994923FE27CF747300DC776A /* LaunchScreen.storyboard */,
-				9912899727D011C4009E3D1C /* MainMenue.sks */,
+				9949240C27CF777500DC776A /* BackSnow.sks */,
 			);
 			path = Game1;
 			sourceTree = "<group>";

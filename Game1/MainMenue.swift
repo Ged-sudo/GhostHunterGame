@@ -7,34 +7,37 @@ class MainMenue: SKScene {
     var newGameButtonNode:SKSpriteNode!
     var newLevelButtonNode:SKSpriteNode!
     var levelLabelNode:SKLabelNode!
+    var bestScoreLabel:SKLabelNode!
+    var bestScore:Int = 0
     
     override func didMove(to view: SKView) {
         
-        //escapeMenueButtonNode = SKSpriteNode(imageNamed: "menu")
-        //escapeMenueButtonNode.position = CGPoint(x: UIScreen.main.bounds.width - 70, y: UIScreen.main.bounds.height - 50)
-        
-        //snowfild = self.childNode(withName: "backSnow") as? SKEmitterNode
-        //snowfild.advanceSimulationTime(10)
-        
         snowfild = SKEmitterNode(fileNamed: "BackSnow")
+        snowfild.advanceSimulationTime(10)
         self.addChild(snowfild)
         
         newGameButtonNode = SKSpriteNode(imageNamed: "StartButton")
-        newGameButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 100)
+        newGameButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - (UIScreen.main.bounds.height/5))
         newGameButtonNode.texture = SKTexture(imageNamed: "StartButton")
         newGameButtonNode.setScale(0.3)
         self.addChild(newGameButtonNode)
         
         newLevelButtonNode = SKSpriteNode(imageNamed: "labelLevel")
-        newLevelButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 300)
+        newLevelButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 2 * (UIScreen.main.bounds.height / 5))
         newLevelButtonNode.texture = SKTexture(imageNamed: "LevelButton")
         self.addChild(newLevelButtonNode)
         
         levelLabelNode = SKLabelNode(text: "Легко")
-        levelLabelNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 500)
+        levelLabelNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 3 * (UIScreen.main.bounds.height / 5))
         levelLabelNode.fontName = "Blood"
         levelLabelNode.fontSize = 50
         self.addChild(levelLabelNode)
+        
+        bestScoreLabel = SKLabelNode(text: "Лучший рузельтат: \(bestScore)")
+        bestScoreLabel.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 4 * (UIScreen.main.bounds.height / 5))
+        bestScoreLabel.fontName = "Blood"
+        bestScoreLabel.fontSize = 20
+        self.addChild(bestScoreLabel)
         
         
         let userLevel = UserDefaults.standard

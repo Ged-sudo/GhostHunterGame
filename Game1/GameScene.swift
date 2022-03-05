@@ -1,9 +1,15 @@
 import SpriteKit
 import GameplayKit
 import CoreMotion
+import CoreData
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
+    var livesLabel:SKLabelNode!
+    var lives: Int = 10 {
+        didSet{
+            livesLabel.text = "Lives: \(lives)"
+        }
+    }
     var escapeMenueButtonNode: SKNode! = nil
     var snowfild: SKEmitterNode!
     var player: SKSpriteNode!
@@ -15,10 +21,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     var gameTimer: Timer!
     var enemys = ["enemy1", "enemy2", "enemy3", "enemy4", "enemy5"]
+    
     let enemyCategory: UInt32 = 0x1 << 1
     let bulletCategory: UInt32 = 0x1 << 0
+    let playerCategory: UInt32 = 0x1 << 2
     let monitorManager = CMMotionManager()
     var xPosition:CGFloat = 0
+    var enemy:SKSpriteNode!
     
     
     
@@ -26,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         escapeMenueButtonNode = SKSpriteNode(imageNamed: "menu")
         escapeMenueButtonNode.position = CGPoint(x: UIScreen.main.bounds.width - 70, y: UIScreen.main.bounds.height - 50)
+        escapeMenueButtonNode.zPosition = 1
         self.addChild(escapeMenueButtonNode)
         
         snowfild = SKEmitterNode(fileNamed: "BackSnow")
@@ -47,9 +57,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontName = "Italic-Blood"
         scoreLabel.fontSize = 36
         scoreLabel.fontColor = UIColor.white
+        scoreLabel.zPosition = 1
         scoreLabel.position = CGPoint(x: (self.frame.width) / 4, y: UIScreen.main.bounds.height - 60)
-        
         self.addChild(scoreLabel)
+        
+        livesLabel = SKLabelNode(text: "Lives: 10")
+        livesLabel.fontName = "Blood"
+        livesLabel.fontSize = 30
+        livesLabel.fontColor = UIColor.white
+        livesLabel.zPosition = 1
+        livesLabel.position = CGPoint(x: (self.frame.width) / 4.5, y: UIScreen.main.bounds.height - 130)
+        self.addChild(livesLabel)
         
         var timeInterval = 0.75
         
@@ -57,7 +75,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timeInterval = 0.5
         }
         
+        
+        
         gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(AddEnemy), userInfo: nil, repeats: true)
+        
+        
         
         monitorManager.accelerometerUpdateInterval = 0.1
         monitorManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data: CMAccelerometerData?, error: Error?) in
@@ -71,17 +93,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didSimulatePhysics() {
         player.position.x += xPosition * 50
         
+        
         if  player.position.x  < 0{
-            player.position = CGPoint(x: UIScreen.main.bounds.width, y: player.position.y)
-        }
-        if player.position.x > UIScreen.main.bounds.width {
             player.position = CGPoint(x: 0, y: player.position.y)
         }
+        if player.position.x > UIScreen.main.bounds.width {
+            player.position = CGPoint(x:UIScreen.main.bounds.width , y: player.position.y)
+        }
+        //if enemy.position.y < player.position.y{
+        //    lives = lives - 1
+        //}
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
         var enemyBody:SKPhysicsBody
         var bulletBody: SKPhysicsBody
+       // var playerBody: SKPhysicsBody
         
         if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask{
             enemyBody = contact.bodyA
@@ -91,10 +118,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemyBody = contact.bodyB
             bulletBody = contact.bodyA
         }
+      
         
         if (enemyBody.categoryBitMask & enemyCategory != 0) && (bulletBody.categoryBitMask & bulletCategory != 0){
             collisionElements(bulletNode: bulletBody.node as! SKSpriteNode, enemyNode: enemyBody.node as! SKSpriteNode)
         }
+     
+        
     }
     
     func collisionElements(bulletNode:SKSpriteNode, enemyNode:SKSpriteNode){
@@ -118,13 +148,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     @objc func AddEnemy(){
-        enemys = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: enemys) as! [String]
+      
+        enemy = SKSpriteNode(imageNamed: enemys[0])
         
-        let enemy = SKSpriteNode(imageNamed: enemys[0])
         let positionEnemyBorn = GKRandomDistribution(lowestValue: 30, highestValue: Int(UIScreen.main.bounds.width) - 30)
         let costPos = CGFloat(positionEnemyBorn.nextInt())
         
-        enemy.position = CGPoint(x: costPos, y: self.frame.height)
+        enemy.position = CGPoint(x: costPos, y: UIScreen.main.bounds.height + 100)
         enemy.physicsBody?.isDynamic = true
         enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
         enemy.setScale(0.5)
@@ -135,17 +165,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.physicsBody?.contactTestBitMask = bulletCategory
         enemy.physicsBody?.collisionBitMask = 0
         
-        var speedEnemy:TimeInterval = 30
+        var speedEnemy:TimeInterval = 5
         
         if UserDefaults.standard.bool(forKey: "hard"){
-            speedEnemy = 20
+            speedEnemy = 2
         }
         
         
         var actions = [SKAction]()
-        actions.append(SKAction.move(to:CGPoint(x: costPos, y: -10000) , duration: speedEnemy))
+        actions.append(SKAction.move(to:CGPoint(x: costPos, y: -100) , duration: speedEnemy))
+        
         actions.append(SKAction.removeFromParent())
+        
+        
         enemy.run(SKAction.sequence(actions))
+        
+       
         
     }
     
@@ -161,6 +196,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         fireBullet()
                     }
                 }
+        
         
     }
     
@@ -195,6 +231,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        
     }
 }

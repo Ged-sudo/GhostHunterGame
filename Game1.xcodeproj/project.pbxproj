@@ -22,7 +22,6 @@
 		9949240B27CF76F300DC776A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9949240927CF76F300DC776A /* Assets.xcassets */; };
 		9949240D27CF777500DC776A /* BackSnow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9949240C27CF777500DC776A /* BackSnow.sks */; };
 		9968C43927D0065700C6457D /* clapEnemy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9968C43827D0065700C6457D /* clapEnemy.wav */; };
-		99F8DD1F27D280FB0052E5B6 /* SaveScoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99F8DD1D27D280FB0052E5B6 /* SaveScoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 		9949240927CF76F300DC776A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9949240C27CF777500DC776A /* BackSnow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackSnow.sks; sourceTree = "<group>"; };
 		9968C43827D0065700C6457D /* clapEnemy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clapEnemy.wav; sourceTree = "<group>"; };
-		99F8DD1E27D280FB0052E5B6 /* SaveScoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SaveScoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +88,6 @@
 				9968C43827D0065700C6457D /* clapEnemy.wav */,
 				994923FE27CF747300DC776A /* LaunchScreen.storyboard */,
 				9949240C27CF777500DC776A /* BackSnow.sks */,
-				99F8DD1D27D280FB0052E5B6 /* SaveScoreData.xcdatamodeld */,
 			);
 			path = Game1;
 			sourceTree = "<group>";
@@ -178,7 +175,6 @@
 				9912899A27D01467009E3D1C /* MainMenue.swift in Sources */,
 				994923F827CF746F00DC776A /* GameViewController.swift in Sources */,
 				994923F027CF746F00DC776A /* AppDelegate.swift in Sources */,
-				99F8DD1F27D280FB0052E5B6 /* SaveScoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,19 +396,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		99F8DD1D27D280FB0052E5B6 /* SaveScoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				99F8DD1E27D280FB0052E5B6 /* SaveScoreData.xcdatamodel */,
-			);
-			currentVersion = 99F8DD1E27D280FB0052E5B6 /* SaveScoreData.xcdatamodel */;
-			path = SaveScoreData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 994923E427CF746F00DC776A /* Project object */;
 }

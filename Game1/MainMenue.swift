@@ -2,9 +2,9 @@ import SpriteKit
 import CoreData
 
 class MainMenue: SKScene {
-    
-    var snowfild:SKEmitterNode!
     let scoreBest = UserDefaults.standard
+    var snowfild:SKEmitterNode!
+    var labelNameGameNode:SKLabelNode!
     var newGameButtonNode:SKSpriteNode!
     var newLevelButtonNode:SKSpriteNode!
     var levelLabelNode:SKLabelNode!
@@ -17,11 +17,15 @@ class MainMenue: SKScene {
     
     override func didMove(to view: SKView) {
         
-        print(scoreBest.integer(forKey: "BestScore"))
-        
         snowfild = SKEmitterNode(fileNamed: "BackSnow")
         snowfild.advanceSimulationTime(10)
         self.addChild(snowfild)
+        
+        labelNameGameNode = SKLabelNode(text: "Ghost Hunter!")
+        labelNameGameNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 50)
+        labelNameGameNode.fontName = "Blood"
+        labelNameGameNode.fontSize = 50
+        self.addChild(labelNameGameNode)
         
         newGameButtonNode = SKSpriteNode(imageNamed: "StartButton")
         newGameButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - (UIScreen.main.bounds.height/5))

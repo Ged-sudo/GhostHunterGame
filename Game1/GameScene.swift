@@ -56,7 +56,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
          
         scoreLabel = SKLabelNode(text: "Score: 0")
-        scoreLabel.fontName = "Italic-Blood"
+        scoreLabel.fontName = "Blood"
         scoreLabel.fontSize = 36
         scoreLabel.fontColor = UIColor.white
         scoreLabel.zPosition = 1
@@ -186,9 +186,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.run(SKAction.sequence(actions)){ [self] in
             self.lives = self.lives - 1
         }
-        
-       
-        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -203,8 +200,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         fireBullet()
                     }
                 }
-        
-        
     }
     
     
@@ -234,14 +229,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bullet.run(SKAction.sequence(actions))
     }
     
-   
-    
-    
     override func update(_ currentTime: TimeInterval) {
-        
         if lives == 0{
             if flag{
-                print("-------------STOP--------------")
                 let transit = SKTransition.flipVertical(withDuration: 1)
                 let gameScene = MainMenue(size: UIScreen.main.bounds.size)
                 

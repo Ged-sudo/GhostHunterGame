@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		9912899727D011C4009E3D1C /* MainMenue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenue.sks; sourceTree = "<group>"; };
 		9912899927D01467009E3D1C /* MainMenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenue.swift; sourceTree = "<group>"; };
-		994923EC27CF746F00DC776A /* Game1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		994923EC27CF746F00DC776A /* Ghost Hunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost Hunter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		994923EF27CF746F00DC776A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		994923F127CF746F00DC776A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		994923F327CF746F00DC776A /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		994923ED27CF746F00DC776A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				994923EC27CF746F00DC776A /* Game1.app */,
+				994923EC27CF746F00DC776A /* Ghost Hunter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		994923EB27CF746F00DC776A /* Game1 */ = {
+		994923EB27CF746F00DC776A /* Ghost Hunter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9949240327CF747300DC776A /* Build configuration list for PBXNativeTarget "Game1" */;
+			buildConfigurationList = 9949240327CF747300DC776A /* Build configuration list for PBXNativeTarget "Ghost Hunter" */;
 			buildPhases = (
 				994923E827CF746F00DC776A /* Sources */,
 				994923E927CF746F00DC776A /* Frameworks */,
@@ -107,9 +107,9 @@
 			);
 			dependencies = (
 			);
-			name = Game1;
+			name = "Ghost Hunter";
 			productName = Game1;
-			productReference = 994923EC27CF746F00DC776A /* Game1.app */;
+			productReference = 994923EC27CF746F00DC776A /* Ghost Hunter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +127,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 994923E727CF746F00DC776A /* Build configuration list for PBXProject "Game1" */;
+			buildConfigurationList = 994923E727CF746F00DC776A /* Build configuration list for PBXProject "Ghost Hunter" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -140,7 +140,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				994923EB27CF746F00DC776A /* Game1 */,
+				994923EB27CF746F00DC776A /* Ghost Hunter */,
 			);
 		};
 /* End PBXProject section */
@@ -337,8 +337,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Watashi.Game11dnnd;
-				PRODUCT_NAME = Game1;
+				PRODUCT_BUNDLE_IDENTIFIER = Watashi.Game11dnndmm;
+				PRODUCT_NAME = "Ghost Hunter";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -366,8 +366,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Watashi.Game11dnnd;
-				PRODUCT_NAME = Game1;
+				PRODUCT_BUNDLE_IDENTIFIER = Watashi.Game11dnndmm;
+				PRODUCT_NAME = "Ghost Hunter";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -377,7 +377,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		994923E727CF746F00DC776A /* Build configuration list for PBXProject "Game1" */ = {
+		994923E727CF746F00DC776A /* Build configuration list for PBXProject "Ghost Hunter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9949240127CF747300DC776A /* Debug */,
@@ -386,7 +386,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9949240327CF747300DC776A /* Build configuration list for PBXNativeTarget "Game1" */ = {
+		9949240327CF747300DC776A /* Build configuration list for PBXNativeTarget "Ghost Hunter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9949240427CF747300DC776A /* Debug */,

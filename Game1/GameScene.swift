@@ -27,8 +27,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let playerCategory: UInt32 = 0x1 << 2
     let monitorManager = CMMotionManager()
     var xPosition:CGFloat = 0
-    var enemy:SKSpriteNode!
+    var flag = true
     
+   
     
     
     
@@ -42,8 +43,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         snowfild.position = CGPoint(x: 0, y: 1472)
         snowfild.advanceSimulationTime(10)
         snowfild.zPosition = -1
-         
         self.addChild(snowfild)
+        
+        
         
         player = SKSpriteNode(imageNamed: "MyPers")
         player.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: 40)
@@ -75,11 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timeInterval = 0.5
         }
         
-        
-        
         gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(AddEnemy), userInfo: nil, repeats: true)
-        
-        
         
         monitorManager.accelerometerUpdateInterval = 0.1
         monitorManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data: CMAccelerometerData?, error: Error?) in
@@ -88,6 +86,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.xPosition = CGFloat(accel.x) * 0.75 + self.xPosition * 0.25
             }
         }
+        
+       
     }
     
     override func didSimulatePhysics() {
@@ -100,15 +100,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if player.position.x > UIScreen.main.bounds.width {
             player.position = CGPoint(x:UIScreen.main.bounds.width , y: player.position.y)
         }
-        //if enemy.position.y < player.position.y{
-        //    lives = lives - 1
-        //}
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
         var enemyBody:SKPhysicsBody
         var bulletBody: SKPhysicsBody
-       // var playerBody: SKPhysicsBody
+       
         
         if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask{
             enemyBody = contact.bodyA
@@ -143,13 +140,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         score += 5
+        
+        let scoreDefolts = UserDefaults.standard
+        
+        if scoreDefolts.integer(forKey: "BestScore") < score{
+            scoreDefolts.set(score, forKey: "BestScore")
+            print( scoreDefolts.set(score, forKey: "BestScore"))
+            print(scoreDefolts.integer(forKey: "BestScore"))
+            scoreDefolts.synchronize()
+        }
     }
     
     
     
     @objc func AddEnemy(){
-      
-        enemy = SKSpriteNode(imageNamed: enemys[0])
+        enemys = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: enemys) as! [String]
+        let enemy = SKSpriteNode(imageNamed: enemys[0])
         
         let positionEnemyBorn = GKRandomDistribution(lowestValue: 30, highestValue: Int(UIScreen.main.bounds.width) - 30)
         let costPos = CGFloat(positionEnemyBorn.nextInt())
@@ -165,20 +171,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.physicsBody?.contactTestBitMask = bulletCategory
         enemy.physicsBody?.collisionBitMask = 0
         
-        var speedEnemy:TimeInterval = 5
+        var speedEnemy:TimeInterval = 7
         
         if UserDefaults.standard.bool(forKey: "hard"){
-            speedEnemy = 2
+            speedEnemy = 3
         }
         
         
         var actions = [SKAction]()
-        actions.append(SKAction.move(to:CGPoint(x: costPos, y: -100) , duration: speedEnemy))
-        
+        actions.append(SKAction.move(to:CGPoint(x: costPos, y: -1) , duration: speedEnemy))
         actions.append(SKAction.removeFromParent())
         
         
-        enemy.run(SKAction.sequence(actions))
+        enemy.run(SKAction.sequence(actions)){ [self] in
+            self.lives = self.lives - 1
+        }
         
        
         
@@ -232,5 +239,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         
+        if lives == 0{
+            if flag{
+                print("-------------STOP--------------")
+                let transit = SKTransition.flipVertical(withDuration: 1)
+                let gameScene = MainMenue(size: UIScreen.main.bounds.size)
+                
+                self.view?.presentScene(gameScene, transition: transit)
+                flag = false
+            }
+        }
     }
 }

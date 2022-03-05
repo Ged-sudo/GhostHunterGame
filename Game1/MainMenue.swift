@@ -1,16 +1,23 @@
 import SpriteKit
+import CoreData
 
 class MainMenue: SKScene {
     
     var snowfild:SKEmitterNode!
-    
+    let scoreBest = UserDefaults.standard
     var newGameButtonNode:SKSpriteNode!
     var newLevelButtonNode:SKSpriteNode!
     var levelLabelNode:SKLabelNode!
     var bestScoreLabel:SKLabelNode!
-    var bestScore:Int = 0
+    var bestScore:Int = 0{
+        didSet{
+            bestScoreLabel.text = "Лучший рузельтат: \(scoreBest.integer(forKey: "BestScore"))"
+        }
+    }
     
     override func didMove(to view: SKView) {
+        
+        print(scoreBest.integer(forKey: "BestScore"))
         
         snowfild = SKEmitterNode(fileNamed: "BackSnow")
         snowfild.advanceSimulationTime(10)
@@ -33,10 +40,10 @@ class MainMenue: SKScene {
         levelLabelNode.fontSize = 50
         self.addChild(levelLabelNode)
         
-        bestScoreLabel = SKLabelNode(text: "Лучший рузельтат: \(bestScore)")
+        bestScoreLabel = SKLabelNode(text: "Лучший рeзyльтат: \(scoreBest.integer(forKey: "BestScore"))")
         bestScoreLabel.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 4 * (UIScreen.main.bounds.height / 5))
         bestScoreLabel.fontName = "Blood"
-        bestScoreLabel.fontSize = 20
+        bestScoreLabel.fontSize = 30
         self.addChild(bestScoreLabel)
         
         

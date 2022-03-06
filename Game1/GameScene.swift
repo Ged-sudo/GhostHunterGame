@@ -5,7 +5,9 @@ import CoreData
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var livesLabel:SKLabelNode!
-    var lives: Int = 10 {
+    
+    
+    var lives: Int = 3 {
         didSet{
             livesLabel.text = "Lives: \(lives)"
         }
@@ -20,7 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     var gameTimer: Timer!
-    var enemys = ["enemy1", "enemy2", "enemy3", "enemy4", "enemy5"]
+    var enemys = ["enemy1", "enemy2", "enemy3", "enemy4", "enemy5", "enemy6"]
     
     let enemyCategory: UInt32 = 0x1 << 1
     let bulletCategory: UInt32 = 0x1 << 0
@@ -34,6 +36,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func didMove(to view: SKView) {
+       
+        
+        
         escapeMenueButtonNode = SKSpriteNode(imageNamed: "menu")
         escapeMenueButtonNode.position = CGPoint(x: UIScreen.main.bounds.width - 70, y: UIScreen.main.bounds.height - 50)
         escapeMenueButtonNode.zPosition = 1
@@ -63,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position = CGPoint(x: (self.frame.width) / 4, y: UIScreen.main.bounds.height - 60)
         self.addChild(scoreLabel)
         
-        livesLabel = SKLabelNode(text: "Lives: 10")
+        livesLabel = SKLabelNode(text: "Lives: \(lives)")
         livesLabel.fontName = "Blood"
         livesLabel.fontSize = 30
         livesLabel.fontColor = UIColor.white
@@ -117,8 +122,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
       
         
-        if (enemyBody.categoryBitMask & enemyCategory != 0) && (bulletBody.categoryBitMask & bulletCategory != 0){
-            collisionElements(bulletNode: bulletBody.node as! SKSpriteNode, enemyNode: enemyBody.node as! SKSpriteNode)
+        if (enemyBody.categoryBitMask & enemyCategory != 0) && (bulletBody.categoryBitMask & bulletCategory != 0) && (bulletBody.node != nil) && (enemyBody.node != nil){
+            
+                self.collisionElements(bulletNode: bulletBody.node as! SKSpriteNode, enemyNode: enemyBody.node as! SKSpriteNode)
+            
         }
      
         
@@ -145,8 +152,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if scoreDefolts.integer(forKey: "BestScore") < score{
             scoreDefolts.set(score, forKey: "BestScore")
-            print( scoreDefolts.set(score, forKey: "BestScore"))
-            print(scoreDefolts.integer(forKey: "BestScore"))
+           // print( scoreDefolts.set(score, forKey: "BestScore"))
+            //print(scoreDefolts.integer(forKey: "BestScore"))
             scoreDefolts.synchronize()
         }
     }
@@ -171,10 +178,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.physicsBody?.contactTestBitMask = bulletCategory
         enemy.physicsBody?.collisionBitMask = 0
         
-        var speedEnemy:TimeInterval = 7
+        var speedEnemy:TimeInterval = 5.5
         
         if UserDefaults.standard.bool(forKey: "hard"){
-            speedEnemy = 3
+            speedEnemy = 2
         }
         
         
@@ -238,6 +245,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.view?.presentScene(gameScene, transition: transit)
                 flag = false
             }
+        }
+        if lives == 2{
+            livesLabel.fontColor = UIColor.yellow
+        }
+        if lives == 1{
+            livesLabel.fontColor = UIColor.red
         }
     }
 }

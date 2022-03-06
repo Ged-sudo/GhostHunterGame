@@ -17,6 +17,9 @@ class MainMenue: SKScene {
     
     override func didMove(to view: SKView) {
         
+        //поправить отображение сделать адаптивным под все экраны, а то на больших съезжает все нахер =(
+        //найти новые спрайты под кнопки в меню и поискать шрифты
+        
         snowfild = SKEmitterNode(fileNamed: "BackSnow")
         snowfild.advanceSimulationTime(10)
         self.addChild(snowfild)
@@ -29,13 +32,18 @@ class MainMenue: SKScene {
         
         newGameButtonNode = SKSpriteNode(imageNamed: "StartButton")
         newGameButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - (UIScreen.main.bounds.height/5))
-        newGameButtonNode.texture = SKTexture(imageNamed: "StartButton")
-        newGameButtonNode.setScale(0.3)
+        newGameButtonNode.texture = SKTexture(imageNamed: "start-2")
+        newGameButtonNode.size.width = UIScreen.main.bounds.width * 0.66
+        newGameButtonNode.size.height = 100
+        newGameButtonNode.setScale(1)
         self.addChild(newGameButtonNode)
         
         newLevelButtonNode = SKSpriteNode(imageNamed: "labelLevel")
         newLevelButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 2 * (UIScreen.main.bounds.height / 5))
         newLevelButtonNode.texture = SKTexture(imageNamed: "LevelButton")
+        newLevelButtonNode.size.width = UIScreen.main.bounds.width * 0.66
+        
+        newGameButtonNode.size.height = 100
         self.addChild(newLevelButtonNode)
         
         levelLabelNode = SKLabelNode(text: "Легко")

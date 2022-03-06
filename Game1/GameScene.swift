@@ -7,7 +7,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var livesLabel:SKLabelNode!
     
     
-    var lives: Int = 3 {
+    var lives: Int = 5 {
         didSet{
             livesLabel.text = "Lives: \(lives)"
         }

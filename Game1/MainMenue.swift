@@ -25,37 +25,39 @@ class MainMenue: SKScene {
         self.addChild(snowfild)
         
         labelNameGameNode = SKLabelNode(text: "Ghost Hunter!")
-        labelNameGameNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 50)
+        labelNameGameNode.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - (self.frame.height / 9))
         labelNameGameNode.fontName = "Blood"
-        labelNameGameNode.fontSize = 50
+        labelNameGameNode.fontSize = 40
         self.addChild(labelNameGameNode)
         
         newGameButtonNode = SKSpriteNode(imageNamed: "StartButton")
-        newGameButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - (UIScreen.main.bounds.height/5))
+        newGameButtonNode.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - (self.frame.height / 5))
         newGameButtonNode.texture = SKTexture(imageNamed: "start-2")
         newGameButtonNode.size.width = UIScreen.main.bounds.width * 0.66
         newGameButtonNode.size.height = 100
-        newGameButtonNode.setScale(1)
+        newGameButtonNode.setScale(0.75)
         self.addChild(newGameButtonNode)
         
         newLevelButtonNode = SKSpriteNode(imageNamed: "labelLevel")
-        newLevelButtonNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 2 * (UIScreen.main.bounds.height / 5))
+        newLevelButtonNode.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 2 * (self.frame.height / 5))
         newLevelButtonNode.texture = SKTexture(imageNamed: "LevelButton")
         newLevelButtonNode.size.width = UIScreen.main.bounds.width * 0.66
-        
+        newLevelButtonNode.setScale(0.75)
         newGameButtonNode.size.height = 100
         self.addChild(newLevelButtonNode)
         
         levelLabelNode = SKLabelNode(text: "Легко")
-        levelLabelNode.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 3 * (UIScreen.main.bounds.height / 5))
+        levelLabelNode.position = CGPoint(x: self.frame.width / 2, y: self.frame.height -  3 * (self.frame.height / 5))
         levelLabelNode.fontName = "Blood"
-        levelLabelNode.fontSize = 50
+        levelLabelNode.fontSize = 40
+        levelLabelNode.setScale(0.75)
         self.addChild(levelLabelNode)
         
         bestScoreLabel = SKLabelNode(text: "Лучший рeзyльтат: \(scoreBest.integer(forKey: "BestScore"))")
-        bestScoreLabel.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height - 4 * (UIScreen.main.bounds.height / 5))
+        bestScoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height -  4 * (self.frame.height / 5))
         bestScoreLabel.fontName = "Blood"
         bestScoreLabel.fontSize = 30
+        bestScoreLabel.setScale(0.75)
         self.addChild(bestScoreLabel)
         
         

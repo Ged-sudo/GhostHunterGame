@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5668859A040567A572341601 /* Pods_Ghost_Hunter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B13AA32E5DC14ECA05734E /* Pods_Ghost_Hunter.framework */; };
 		9912899827D011C4009E3D1C /* MainMenue.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9912899727D011C4009E3D1C /* MainMenue.sks */; };
 		9912899A27D01467009E3D1C /* MainMenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912899927D01467009E3D1C /* MainMenue.swift */; };
 		994923F027CF746F00DC776A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994923EF27CF746F00DC776A /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		849D41CF5CF2C427489982A1 /* Pods-Ghost Hunter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost Hunter.debug.xcconfig"; path = "Target Support Files/Pods-Ghost Hunter/Pods-Ghost Hunter.debug.xcconfig"; sourceTree = "<group>"; };
 		9912899727D011C4009E3D1C /* MainMenue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenue.sks; sourceTree = "<group>"; };
 		9912899927D01467009E3D1C /* MainMenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenue.swift; sourceTree = "<group>"; };
 		994923EC27CF746F00DC776A /* Ghost Hunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghost Hunter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,9 @@
 		9949240927CF76F300DC776A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9949240C27CF777500DC776A /* BackSnow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackSnow.sks; sourceTree = "<group>"; };
 		9968C43827D0065700C6457D /* clapEnemy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clapEnemy.wav; sourceTree = "<group>"; };
+		9974641E27D4E1B7002AF11B /* Ghost-Hunter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Ghost-Hunter-Info.plist"; sourceTree = "<group>"; };
+		AED1F32B72DA10A9907283D0 /* Pods-Ghost Hunter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost Hunter.release.xcconfig"; path = "Target Support Files/Pods-Ghost Hunter/Pods-Ghost Hunter.release.xcconfig"; sourceTree = "<group>"; };
+		F9B13AA32E5DC14ECA05734E /* Pods_Ghost_Hunter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ghost_Hunter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5668859A040567A572341601 /* Pods_Ghost_Hunter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,9 +63,12 @@
 		994923E327CF746F00DC776A = {
 			isa = PBXGroup;
 			children = (
+				9974641E27D4E1B7002AF11B /* Ghost-Hunter-Info.plist */,
 				9949240927CF76F300DC776A /* Assets.xcassets */,
 				994923EE27CF746F00DC776A /* Game1 */,
 				994923ED27CF746F00DC776A /* Products */,
+				A314F8AE324419D92A6973AA /* Pods */,
+				A19AD740CA4A7BB886E88111 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +101,23 @@
 			path = Game1;
 			sourceTree = "<group>";
 		};
+		A19AD740CA4A7BB886E88111 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9B13AA32E5DC14ECA05734E /* Pods_Ghost_Hunter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A314F8AE324419D92A6973AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				849D41CF5CF2C427489982A1 /* Pods-Ghost Hunter.debug.xcconfig */,
+				AED1F32B72DA10A9907283D0 /* Pods-Ghost Hunter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,6 +125,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9949240327CF747300DC776A /* Build configuration list for PBXNativeTarget "Ghost Hunter" */;
 			buildPhases = (
+				871A288E6F19F8A5675EF753 /* [CP] Check Pods Manifest.lock */,
 				994923E827CF746F00DC776A /* Sources */,
 				994923E927CF746F00DC776A /* Frameworks */,
 				994923EA27CF746F00DC776A /* Resources */,
@@ -165,6 +192,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		871A288E6F19F8A5675EF753 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ghost Hunter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		994923E827CF746F00DC776A /* Sources */ = {
@@ -318,6 +370,7 @@
 		};
 		9949240427CF747300DC776A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 849D41CF5CF2C427489982A1 /* Pods-Ghost Hunter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -325,6 +378,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37F2LK327C;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ghost-Hunter-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -347,6 +401,7 @@
 		};
 		9949240527CF747300DC776A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AED1F32B72DA10A9907283D0 /* Pods-Ghost Hunter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -354,6 +409,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37F2LK327C;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ghost-Hunter-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

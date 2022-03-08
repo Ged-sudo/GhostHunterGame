@@ -17,7 +17,6 @@ class MainMenue: SKScene {
     
     override func didMove(to view: SKView) {
         
-        //поправить отображение сделать адаптивным под все экраны, а то на больших съезжает все нахер =(
         //найти новые спрайты под кнопки в меню и поискать шрифты
         
         snowfild = SKEmitterNode(fileNamed: "BackSnow")
